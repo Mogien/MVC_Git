@@ -20,5 +20,11 @@ namespace MVC_GIT.Controllers
             ViewData.Model = stud;
             return View();
         }
+        public ActionResult Details(int OrderNo)
+        {
+            var item = stud.Find(x => x.OrderNo == OrderNo);
+
+            return View(item);
+        }
     }
 }

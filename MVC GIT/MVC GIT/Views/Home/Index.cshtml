@@ -28,7 +28,7 @@
     {
         <tr class="tr_hover">
             <td>
-                @Html.DisplayFor(modelItem => item.OrderNo)
+                @Html.ActionLink("" + @Html.DisplayFor(modelItem => item.OrderNo), "Details", "Home", new { OrderNo = item.OrderNo }, htmlAttributes: null)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.OrderDate)

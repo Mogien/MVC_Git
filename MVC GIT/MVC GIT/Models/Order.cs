@@ -8,31 +8,17 @@ namespace MVC_GIT.Models
 {
     public class Order
     {
-        [Display(Name = "Order No.")]
-        public int OrderNo
-        {
-            get;
-            set;
-        }
-        [Display(Name = "Order Date")]
-        [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        public DateTime OrderDate
-        {
-            get;
-            set;
-        }
-        [Display(Name = "Customer Name")]
-        public string CustomerName
-        {
-            get;
-            set;
-        }
-        [Display(Name = "Total Amount")]
-        public float TotalAmount
-        {
-            get;
-            set;
-        }
+
+        [Key]
+        public int Id { get; set; }
+
+        public string No { get; set; }
+
+        public DateTime OrderDate { get; set;}
+
+        public string OrderName { get; set; }
+        public int CustomerId { get; set; }
+        public decimal Amount { get; set; }
+        public Customer Customer { get; set; }
     }
 }

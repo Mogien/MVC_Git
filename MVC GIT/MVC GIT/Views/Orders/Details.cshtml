@@ -1,0 +1,28 @@
+﻿@model IEnumerable<MVC_GIT.Models.OrdersDTO>
+
+@*Shared Folder Partial View*@
+<div id="ordList">
+    <table style="width:100%;" class="table table-bordered">
+        <tr>
+            <th>Order No.</th>
+            <th>Order Date</th>
+            <th>Customer Name</th>
+            <th>Total Amount</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.No
+                </td>
+                <td>@item.OrderDate.ToShortDateString()</td>
+                <td>@item.Customer.LastName, @item.Customer.Firstname @item.Customer.MiddleName[0] </td>
+                <td>@item.Amount</td>
+                <td> @Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+            </tr>
+            
+        }
+
+    </table>
+</div>

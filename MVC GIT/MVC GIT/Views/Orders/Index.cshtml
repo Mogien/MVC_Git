@@ -1,0 +1,33 @@
+﻿@model IEnumerable<MVC_GIT.Models.OrdersDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p style="margin-top:20px">
+    @Html.ActionLink("Add Order", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<hr />
+<div class="row" style="float: right; margin-bottom:10px; margin-right:10px;">
+    Filter : @Html.DropDownList("CustomerList", null, "Select Name")
+</div>
+@{
+    Html.RenderAction("OrderDetails", "Orders");
+}
+
+@section scripts {
+    <script>
+        $("#CustomerList").change(function () {
+            var id = this.value;
+            $.ajax({
+                url: '@Url.Action("OrderDetails", "Orders")',
+                data: { id: id },
+                type: 'POST',
+                success: function (result) {
+                    $("#ordList").html(result);
+                }
+            });
+        });
+    </script>
+}
